@@ -64,6 +64,7 @@ WASH_DEV_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
         key=ATTR_ERROR_STATE,
         name="Error state",
         device_class=BinarySensorDeviceClass.PROBLEM,
+        entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda x: x.error_state,
     ),
     ThinQBinarySensorEntityDescription(
