@@ -67,6 +67,7 @@ BIT_FEATURES = {
     WashDeviceFeatures.SELFCLEAN: ["SelfClean", "selfClean"],
     WashDeviceFeatures.SOFTENER: ["SoftenerStatus", "ezSoftenerState"],
     WashDeviceFeatures.SOFTENERLOW: ["SoftenerRemaining", "softenerRemaining"],
+    
     WashDeviceFeatures.STEAM: ["Steam", "steam"],
     WashDeviceFeatures.STEAMSOFTENER: ["SteamSoftener", "steamSoftener"],
     WashDeviceFeatures.TURBOWASH: ["TurboWash", "turboWash"],
@@ -1108,6 +1109,17 @@ class WMStatus(DeviceStatus):
         return self._update_feature(WashDeviceFeatures.WATERTEMP, water_temp)
 
     @property
+    def soil_option_state(self):
+        """Return soil option state."""
+        keys = self._getkeys(["soilWash"])
+        if not (key := self.get_model_info_key(keys)):
+            return None
+        soil_level = self.lookup_enum(key)
+        if not soil_level:
+            soil_level = StateOptions.NONE
+        return self._update_feature(WashDeviceFeatures.SOILLEVEL, soil_level)
+    
+    @property
     def rinse_mode_option_state(self):
         """Return rinse mode option state."""
         keys = self._getkeys(["RinseOption", "rinse"])
@@ -1212,6 +1224,7 @@ class WMStatus(DeviceStatus):
             self.error_msg,
             self.spin_option_state,
             self.water_temp_option_state,
+            self.soil_option_state,
             self.rinse_mode_option_state,
             self.dry_level_option_state,
             self.temp_control_option_state,
