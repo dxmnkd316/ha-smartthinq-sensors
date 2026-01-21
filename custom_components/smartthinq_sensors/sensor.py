@@ -146,6 +146,7 @@ WASH_DEV_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=WashDeviceFeatures.ERROR_MSG,
         name="Error message",
+        entity_category=EntityCategory.DIAGNOSTIC,
         icon="mdi:alert-circle-outline",
     ),
     ThinQSensorEntityDescription(
