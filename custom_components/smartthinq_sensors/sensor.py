@@ -124,6 +124,11 @@ WASH_DEV_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
         icon="mdi:thermometer-lines",
     ),
     ThinQSensorEntityDescription(
+        key=WashDeviceFeatures.SOILLEVEL,
+        name="Soil level",
+        icon="mdi:liquid-spot",
+    ),
+    ThinQSensorEntityDescription(
         key=WashDeviceFeatures.RINSEMODE,
         name="Rinse mode",
         icon="mdi:waves",
