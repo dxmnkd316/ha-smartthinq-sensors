@@ -100,7 +100,7 @@ WASH_DEV_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=ATTR_CURRENT_COURSE,
         name="Current course",
-        icon="mdi:pin-outline",
+        icon="mdi:knob",
         value_fn=lambda x: x.current_course,
     ),
     ThinQSensorEntityDescription(
@@ -116,7 +116,7 @@ WASH_DEV_SENSORS: tuple[ThinQSensorEntityDescription, ...] = (
     ThinQSensorEntityDescription(
         key=WashDeviceFeatures.SPINSPEED,
         name="Spin speed",
-        icon="mdi:rotate-3d",
+        icon="mdi:rotate-left",
     ),
     ThinQSensorEntityDescription(
         key=WashDeviceFeatures.WATERTEMP,
