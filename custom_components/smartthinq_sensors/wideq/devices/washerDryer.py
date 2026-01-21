@@ -1114,8 +1114,6 @@ class WMStatus(DeviceStatus):
         keys = self._getkeys(["soilWash"])
         if not (key := self.get_model_info_key(keys)):
             return None
-        if self.key_exist("soilWash") and self.is_dryer:
-            return None
         soil_level = self.lookup_enum(key)
         if not soil_level:
             soil_level = StateOptions.NONE
