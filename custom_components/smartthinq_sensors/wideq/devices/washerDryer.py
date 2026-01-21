@@ -1111,7 +1111,7 @@ class WMStatus(DeviceStatus):
     @property
     def soil_option_state(self):
         """Return soil option state."""
-        keys = self._getkeys(["WaterTemp", "soilWash"])
+        keys = self._getkeys(["soilWash"])
         if not (key := self.get_model_info_key(keys)):
             return None
         if self.key_exist("soilWash") and self.is_dryer:
@@ -1226,6 +1226,7 @@ class WMStatus(DeviceStatus):
             self.error_msg,
             self.spin_option_state,
             self.water_temp_option_state,
+            self.soil_option_state,
             self.rinse_mode_option_state,
             self.dry_level_option_state,
             self.temp_control_option_state,
