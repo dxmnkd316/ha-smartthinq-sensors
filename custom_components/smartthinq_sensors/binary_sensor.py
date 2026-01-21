@@ -100,6 +100,7 @@ WASH_DEV_BINARY_SENSORS: tuple[ThinQBinarySensorEntityDescription, ...] = (
     ThinQBinarySensorEntityDescription(
         key=WashDeviceFeatures.REMOTESTART,
         name="Remote start",
+        icon="mdi:cellphone-check",
         entity_registry_enabled_default=False,
     ),
     ThinQBinarySensorEntityDescription(
