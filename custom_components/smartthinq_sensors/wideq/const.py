@@ -149,6 +149,7 @@ class WashDeviceFeatures(StrEnum):
     SELFCLEAN = "self_clean"
     SOFTENER = "softener"
     SOFTENERLOW = "softener_low"
+    SOILLEVEL = "soil_level"
     SPINSPEED = "spin_speed"
     STANDBY = "standby"
     STEAM = "steam"
